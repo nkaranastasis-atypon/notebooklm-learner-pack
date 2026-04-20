@@ -73,7 +73,7 @@ See `references/brand-voices.md` for the voice cards, color palettes, typography
 See `references/html-template.md` for the template structure, the data-driven JavaScript pattern, and the worked CJR-X + The Analyst example.
 
 The canonical worked example lives at:
-`examples/cjrx-techy-surgeon-learner-pack.html`
+`examples/notebook-lm-learner-pack.html`
 
 When in doubt about layout, rendering, or JS composition patterns, read that file and adapt.
 
