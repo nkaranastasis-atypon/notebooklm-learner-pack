@@ -59,28 +59,68 @@ For richer brand treatment, also consult the corresponding branding skill (`the-
 
 ## Modern Enterprise
 
+**Vibe:** Dynamic, empowering, professional, scientific.
+
 **Colors (CSS variables):**
 ```css
---deep-purple: #4B2E83;
---purple: #6B46C1;
---purple-light: #9F7AEA;
---purple-pale: #EDE7F6;
---charcoal: #1F2937;
---sparkle-cyan: #22D3EE;
---cream: #FAFAF9;
+--bg-paper: #f2f2eb;
+--bg-heritage: #003b44;
+--accent-bright-green: #00d975;
+--accent-sage: #a3bfb5;
+--accent-beacon-blue: #4885f7;
+--accent-sky: #00ede1;
+--accent-lime: #98f72d;
+--data-green: #057a4b;
+--insight-gold: #ffc800;
+--active-red: #e52836;
+--text-dark: #003b44;
+--text-light: #ffffff;
 ```
 
-**Typography:** Inter (sans, both display and body) + JetBrains Mono (prompt text). Crisp, modern SaaS register.
+**Typography:** Inter (display + body) + IBM Plex Mono (CTA/labels). All monospace labels uppercase with +100 tracking.
 
-**Header gradient:** `linear-gradient(135deg, #4B2E83, #6B46C1)`
+```css
+/* Headline */
+font: 300 clamp(2rem, 5vw, 4rem)/1.1 'Inter', 'Segoe UI', sans-serif;
+letter-spacing: -0.02em;
+
+/* Subhead */
+font: 600 clamp(1.2rem, 2.5vw, 2rem)/1.2 'Inter', 'Segoe UI', sans-serif;
+letter-spacing: -0.01em;
+
+/* Body */
+font: 400 clamp(1rem, 1.5vw, 1.2rem)/1.2 'Inter', 'Segoe UI', sans-serif;
+letter-spacing: -0.01em;
+
+/* CTA / Labels */
+font: 400 clamp(0.8rem, 1.2vw, 1rem)/1 'IBM Plex Mono', 'Consolas', monospace;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+```
+
+**Layout:** Centered for hero/title slides; left-aligned for content slides. Generous white space throughout.
+
+**Header gradient:** `linear-gradient(135deg, #003b44, #057a4b)`
+
+**Signature elements:**
+- **Frame Effect (Impact lines):** 2–5 concentric rounded rectangles (border-radius ≥ 20px) with uneven gaps (e.g., 10 / 20 / 30px from edge) and 3–8px stroke weight varying per frame.
+  - *Full frame:* all four edges, used on title/hero slides.
+  - *Corner frames:* corner positions only, used on content slides with left-aligned text.
+  - *Dark variant:* `#00d975` frames on `#003b44` background.
+  - *Light variant:* `#00d975` frames on `#f2f2eb` background.
+  - Implemented as absolutely-positioned `div`s or border pseudo-elements. Purpose: energy and brand recognition without competing with content.
+- Line icons inside squoval (rounded-square) containers.
+- Scientific, geometric, flat illustrations with subtle depth.
+- Conceptual photography with clear-space overlay for text and impact lines; minimum 40% dominant brand tone in images.
+- WCAG-compliant contrast: heritage green or black on light backgrounds; white on dark.
 
 **Voice card:**
 - **Who:** "An enterprise platform for domain coordination, outcome-based delivery, and workflow automation. Speaking to enterprise operators, finance leaders, and strategic decision-makers."
-- **Tone:** "Enterprise-grade, operator-focused, product-forward. Clear, confident, substantive. Peer-to-peer with sophisticated buyers."
+- **Tone:** "Dynamic, empowering, professional. Clear, confident, substantive. Peer-to-peer with sophisticated buyers."
 - **Signature move:** "Connect policy or market dynamics to specific operational and product implications at the enterprise level."
 - **Avoid:** "Sales energy. Vague capability claims. Jargon without substance."
 
-**OUTRO voice-line for each prompt:** "Voice: Modern Enterprise — operator-focused, enterprise-grade, product-forward."
+**OUTRO voice-line for each prompt:** "Voice: Modern Enterprise — dynamic, operator-focused, enterprise-grade."
 
 ---
 
