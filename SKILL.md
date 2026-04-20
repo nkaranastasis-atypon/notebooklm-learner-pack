@@ -1,6 +1,6 @@
 ---
 name: notebooklm-learner-pack
-description: Generate branded, topic-specific HTML NotebookLM Learner Packs — 29 copy-paste prompt cards (10 infographics + 5 slide decks + 5 audio overviews + 4 video storyboards + 5 knowledge tests) with a sticky dual-filter UI that toggles between six audience lenses (ELI5, Newbie, Clinical, Operator, Finance, Deep Dive) and five asset types. Triggers on "NotebookLM learner pack," "learner site," "learner prompts," "explainer prompt pack," "build a prompt library for [topic]," "make a NotebookLM pack on [topic] in [brand] voice," or the workflow of ingesting source material into NotebookLM and wanting a reusable prompt library to generate explainer assets and tests. Also triggers when a new policy drops, a meeting just finished, or an abstract book arrives. Supports Techy Surgeon, Duke Health, RevelAi Modern Enterprise, and custom brands. Use liberally for turning ingested source material into on-brand explainer asset and knowledge-testing pipelines.
+description: Generate branded, topic-specific HTML NotebookLM Learner Packs — 29 copy-paste prompt cards (10 infographics + 5 slide decks + 5 audio overviews + 4 video storyboards + 5 knowledge tests) with a sticky dual-filter UI that toggles between six audience lenses (ELI5, Newbie, Practitioner, Operator, Finance, Deep Dive) and five asset types. Triggers on "NotebookLM learner pack," "learner site," "learner prompts," "explainer prompt pack," "build a prompt library for [topic]," "make a NotebookLM pack on [topic] in [brand] voice," or the workflow of ingesting source material into NotebookLM and wanting a reusable prompt library to generate explainer assets and tests. Also triggers when a new standard drops, a meeting just finished, or an abstract book arrives. Supports any configured brand voice; custom brands can be defined at pack-generation time. Use liberally for turning ingested source material into on-brand explainer asset and knowledge-testing pipelines.
 ---
 
 # NotebookLM Learner Pack
@@ -15,9 +15,9 @@ Each Pack contains exactly **29 prompt cards** across five asset types:
 - **5 Slide Decks** — slide-by-slide outlines for the PPTX skill or Gamma
 - **5 Audio Overviews** — NotebookLM native podcast-format prompts
 - **4 Video Storyboards** — scene-by-scene briefs for Veo3 or Runway
-- **5 Knowledge Tests** — NotebookLM Flashcards and Quiz prompts spanning recall, application, diagnosis, synthesis, and judgment
+- **5 Knowledge Tests** — NotebookLM Flashcards and Quiz prompts spanning recall, application, analysis, synthesis, and judgment
 
-Every prompt has **6 audience-lens variants** that the user toggles live in the browser: ELI5, Newbie, Clinical, Operator (default), Finance, Deep Dive.
+Every prompt has **6 audience-lens variants** that the user toggles live in the browser: ELI5, Newbie, Practitioner, Operator (default), Finance, Deep Dive.
 
 ## When To Use
 
@@ -36,15 +36,15 @@ If the user provides source material directly, use it to ground the prompts. If 
 
 Before generating, confirm you have:
 - **Topic** (required) — what the Pack is about
-- **Brand voice** (required) — Techy Surgeon, Duke Health, RevelAi Modern Enterprise, or custom. Brand determines voice card, colors, typography, and the imperative voice woven into every prompt.
+- **Brand voice** (required) — The Analyst, The Scholar, Modern Enterprise, or custom. Brand determines voice card, colors, typography, and the imperative voice woven into every prompt.
 - **Source context** (optional but strongly preferred) — any documents, policy summaries, meeting notes, or analyses the user provides. Use these to make prompts **grounded and specific**, not generic.
-- **Audience priorities** (optional) — if the user flags a primary audience (e.g., "this is for clinical leaders"), default the lens toggle to that audience.
+- **Audience priorities** (optional) — if the user flags a primary audience (e.g., "this is for practitioners"), default the lens toggle to that audience.
 
 If any of these are ambiguous, ask one focused question before proceeding — don't over-interview.
 
 ### 2. Draft the 24 Prompts (Grounding Matters Most)
 
-This is the most important step. The prompts must be **validated and grounded in the source material** rather than generic. A prompt that says "compare two entities from the source" is weaker than "compare TEAM and CJR-X side-by-side — 5-7 operationally consequential parameters each."
+This is the most important step. The prompts must be **validated and grounded in the source material** rather than generic. A prompt that says "compare two entities from the source" is weaker than "compare [Framework A] and [Framework B] side-by-side — 5-7 operationally consequential parameters each."
 
 **Grounding rules:**
 
@@ -70,21 +70,21 @@ See `references/brand-voices.md` for the voice cards, color palettes, typography
 
 ### 5. Render the HTML
 
-See `references/html-template.md` for the template structure, the data-driven JavaScript pattern, and the worked CJR-X + Techy Surgeon example.
+See `references/html-template.md` for the template structure, the data-driven JavaScript pattern, and the worked CJR-X + The Analyst example.
 
 The canonical worked example lives at:
-`/sessions/eloquent-happy-archimedes/mnt/RevelAi Health/NotebookLM Learner Pack/one-pagers/techy-surgeon-learner-pack.html`
+`examples/cjrx-techy-surgeon-learner-pack.html`
 
 When in doubt about layout, rendering, or JS composition patterns, read that file and adapt.
 
 ### 6. Save and Share
 
-Save the HTML to `/sessions/eloquent-happy-archimedes/mnt/RevelAi Health/NotebookLM Learner Pack/one-pagers/` with a filename pattern: `{brand-slug}-{topic-slug}-learner-pack.html`.
+Save the HTML to a location agreed with the user (or a sensible default like `output/`) with a filename pattern: `{brand-slug}-{topic-slug}-learner-pack.html`.
 
 Examples:
-- `techy-surgeon-cjrx-learner-pack.html`
-- `duke-hip-fracture-policy-learner-pack.html`
-- `revelai-modern-enterprise-team-model-learner-pack.html`
+- `brand-a-framework-comparison-learner-pack.html`
+- `brand-b-new-policy-learner-pack.html`
+- `brand-c-annual-report-learner-pack.html`
 
 Share with a computer:// link. Do not write a long post-amble — the artifact speaks.
 
@@ -94,12 +94,12 @@ Before handing over:
 
 1. **Grounding check** — Read 3 random prompts. Could they be dropped into a Pack on a different topic with only a search-and-replace? If yes, ground them more deeply in the topic's specific constructs.
 2. **Lens distinctness check** — Toggle ELI5 and Deep Dive on the same card. The two variants should read as genuinely different — not a template with an adjective swapped. Different emphasis, different vocabulary, different framing.
-3. **Brand voice check** — The voice card at the top of the HTML should match the brand's established voice. The `OUTRO` block injected into every prompt should carry the same voice markers (e.g., "Techy Surgeon — analytical, direct" vs. "Duke Health — academic, rigorous" vs. "RevelAi Modern Enterprise — operator-focused, enterprise-grade").
+3. **Brand voice check** — The voice card at the top of the HTML should match the brand's established voice. The `OUTRO` block injected into every prompt should carry the same voice markers consistent with the brand's tone (e.g., "analytical, direct" vs. "academic, rigorous" vs. "operator-focused, enterprise-grade").
 4. **Asset fidelity** — Infographic prompts produce image briefs, not essays. Audio prompts invoke NotebookLM's native Audio Overview. Deck prompts produce slide-by-slide outlines with speaker notes. Video prompts produce scene-by-scene storyboards. Don't mix the output formats.
 
 ## What Not To Do
 
-- **Don't put gravitas openings in the prompts.** No "In the quiet corridors of American healthcare..." No staccato fragments for emphasis. Direct, operator-focused framing.
+- **Don't put gravitas openings in the prompts.** No melodramatic scene-setting (e.g., "In the quiet corridors where decisions are made..."). No staccato fragments for emphasis. Direct, operator-focused framing.
 - **Don't hallucinate specifics.** If the source material doesn't mention a specific number, threshold, or actor, don't invent one. Better to leave the prompt slightly more general than to bake in a wrong detail.
 - **Don't over-elaborate the lens modifiers.** The audience suffix should be 1-3 sentences. Longer modifiers dilute the core prompt.
 - **Don't skip the grounding step.** A generic Pack is a failed Pack. The value is in topic-specific scaffolding.
@@ -108,5 +108,5 @@ Before handing over:
 
 - `references/prompt-architecture.md` — The 24 asset slots, their structural scaffolds, grounding guidance per slot
 - `references/audience-lenses.md` — The six lenses with suffix patterns and composition logic
-- `references/brand-voices.md` — Voice cards, colors, typography for Techy Surgeon, Duke, RevelAi ModEnt, and generic/custom brands
+- `references/brand-voices.md` — Voice cards, colors, typography for The Analyst, The Scholar, Modern Enterprise, and generic/custom brands
 - `references/html-template.md` — HTML/CSS/JS structure and the data-driven rendering pattern
